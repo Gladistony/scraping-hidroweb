@@ -22,8 +22,16 @@ ids_documentos = None
 if not pasta_destino.is_dir():
     pasta_destino.mkdir()
 
-with open('ids_estacoes_convencionais.txt', 'r') as ids_file:
-    ids_documentos = [line.strip() for line in ids_file.readlines()]
+estacoes_convencionais = "dominio\estacao.csv"
+#Abrir o arquivo usando utf-8
+openestacoes_convencionais = open(estacoes_convencionais, 'r', encoding='utf-8')
+estacoes = openestacoes_convencionais.readlines()
+openestacoes_convencionais.close()
+
+ids_documentos = estacoes
+
+#with open('ids_estacoes_convencionais.txt', 'r') as ids_file:
+#    ids_documentos = [line.strip() for line in ids_file.readlines()]
 
 inicio_bloco = 0
 fim_bloco = inicio_bloco + NUMERO_LINHAS
